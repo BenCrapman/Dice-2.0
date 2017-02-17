@@ -160,11 +160,11 @@ def user_roll():
 	if print_distribution:
 		#adds a number of spaces between the roll and it's frequency
 		#this makes it look neater
-		for i in range(len(distribution)):
+		for i in range(len(distribution) - 1):
 			colon = ':'
-			for j in range(4 - len(str(i))):
+			for j in range(4 - len(str(i + 1))):
 				colon += ' '
-			print str(i) + colon + str(distribution[i]) + '%'
+			print str(i + 1) + colon + str(distribution[i + 1]) + '%'
 	print 'average roll: ' + str(average)
 	print 'standard deviation: ' + str(standard_deviation)
 		
