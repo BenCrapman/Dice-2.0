@@ -37,4 +37,25 @@ def disadvantage(base_rolls_1, base_rolls_2):
 			else:
 				rolls.append(base_roll_2)
 	return rolls
-		
+
+#given n dice rolls, return the highest
+#this function takes a 2d list containing dice distributions
+#every possible roll with the aforementioned rules is returned
+def n_advantage(roll_distributions):
+	#initialize empty list
+	rolls = roll_distributions[0]
+	#iterate through roll_distributions starting at roll_distributions[1]
+	for i in range(len(roll_distributions) - 1):
+		#set rolls to the advantage roll of itself with the next element of roll_distributions
+		rolls = advantage(rolls, roll_distributions[i + 1])
+	return rolls
+
+#like n_advantage, but it takes the lowest roll instead
+def n_disadvantage(roll_distributions):
+	#initialize empty list
+	rolls = roll_distributions[0]
+	#iterate through roll_distributions starting at roll_distributions[1]
+	for i in range(len(roll_distributions) - 1):
+		#set rolls to the advantage roll of itself with the next element of roll_distributions
+		rolls = disadvantage(rolls, roll_distributions[i + 1])
+	return rolls
