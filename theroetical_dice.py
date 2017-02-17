@@ -102,9 +102,11 @@ def distribution_standard_deviation(mu, distribution):
 	sigma = 0.0
 	#add magnitude of difference between average and measured value
 	for i in range(len(distribution)):
-		sigma += math.fabs((distribution[i] * i / 100.0) - mu)
+		sigma += (i ** 2) * distribution[i]
 	#divide by total number of values to get the average difference in values from the average value
-	sigma /= len(distribution)
+	sigma /= 100.0
+	sigma -= mu ** 2
+	sigma = sigma ** 0.5
 	return sigma
 
 #function used for testing, non-permanent
